@@ -1,0 +1,28 @@
+<div class="container card mx-auto mt-5 p-3">
+  <h1>Edit Task</h1>
+
+  <% if @task.errors.any? %>
+  <% @task.errors.full_messages.each do |msg| %>
+    <p class='text-danger'><%= msg %></p>
+  <% end %>
+<% end %>
+
+  <%= form_for @task do |f| %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+      <%= f.label :details %>
+      <%= f.text_field :details, class: 'form-control' %>
+      <%= f.label :completed %>
+      <%= f.check_box :completed %>
+    </div>
+      <%= f.submit class: 'btn btn-dark mt-3' %>
+  <% end %>
+
+
+</div>
+<div class="container">
+  <%= link_to tasks_path, class: 'btn btn-dark mt-3' do %>
+    <i class="fas fa-home"></i>
+  <% end %>
+</div>
